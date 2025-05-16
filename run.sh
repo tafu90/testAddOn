@@ -2,7 +2,8 @@
 
 
 # Start the Avahi daemon to handle mDNS service discovery
-/usr/sbin/avahi-daemon &
+/usr/sbin/avahi-daemon --no-dbus --daemonize=no &
+
 
 # Fake Synology mDNS broadcast
 #avahi-publish -s "Maina" _http._tcp 5000 &
