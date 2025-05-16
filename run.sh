@@ -1,8 +1,12 @@
 #!/bin/bash
 
 
-# Start the Avahi daemon to handle mDNS service discovery
-/usr/sbin/avahi-daemon --no-chroot &
+# Set environment variable to disable D-Bus usage
+export AVAHI_DAEMON_ARGS="--no-dbus"
+
+# Start the Avahi daemon (without --daemonize and without D-Bus)
+# Also run in the foreground
+/usr/sbin/avahi-daemon $AVAHI_DAEMON_ARGS --no-chroot &
 
 
 # Fake Synology mDNS broadcast
