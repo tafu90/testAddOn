@@ -2,7 +2,7 @@
 
 
 # Start the Avahi daemon to handle mDNS service discovery
-/usr/sbin/avahi-daemon --daemonize=no &
+/usr/sbin/avahi-daemon --no-chroot &
 
 
 # Fake Synology mDNS broadcast
