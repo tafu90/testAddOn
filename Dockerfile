@@ -16,11 +16,7 @@
 FROM homeassistant/armv7-base:latest
 
 # Install Avahi and socat for mDNS forwarding
-##RUN apk add --no-cache avahi socat nss-mdns
-
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
-    && apk update \
-    && apk add --no-cache avahi socat nss-mdns
+RUN apk add --no-cache avahi socat
 
 # Copy the run.sh script into the container
 COPY run.sh /usr/local/bin/run.sh
