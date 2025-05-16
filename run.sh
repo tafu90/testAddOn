@@ -4,10 +4,6 @@
 # Start the Avahi daemon to handle mDNS service discovery
 /usr/sbin/avahi-daemon --no-daemon &
 
-
-# Keep the script running to forward mDNS traffic
-wait
-
 # Fake Synology mDNS broadcast
 avahi-publish -s "Maina" _http._tcp 5000 &
 avahi-publish -s "Maina" _smb._tcp 445 &
