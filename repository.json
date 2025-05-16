@@ -1,0 +1,14 @@
+{
+  "name": "Custom Add-ons",
+  "url": "https://github.com/tafu90/testAddOn",
+  "image": "https://example.com/some-image.png",
+  "add-ons": [
+    {
+      "name": "Avahi mDNS Reflector 2",
+      "slug": "avahi_reflector",
+      "description": "Reflect mDNS traffic between interfaces 22.",
+      "arch": ["aarch64", "armv7", "amd64", "i386"],
+      "url": "https://github.com/tafu90/testAddOn/avahi_reflector"
+    }
+  ]
+}

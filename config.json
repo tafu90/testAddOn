@@ -1,0 +1,14 @@
+{
+  "name": "Avahi Reflector",
+  "version": "1.0.0",
+  "slug": "avahi-reflector",
+  "description": "Reflects mDNS packets over VPN for Synology discovery",
+  "startup": "system",
+  "boot": "auto",
+  "arch": ["aarch64", "armv7", "armhf", "amd64", "i386"],
+  "host_network": true,
+  "map": ["config:rw"],
+  "services": ["avahi-daemon"],
+  "options": {},
+  "schema": {}
+}
