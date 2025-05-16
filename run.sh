@@ -2,7 +2,7 @@
 
 
 # Start the Avahi daemon to handle mDNS service discovery
-/usr/sbin/avahi-daemon --no-dbus --daemonize=no &
+/usr/sbin/avahi-daemon --daemonize=no &
 
 
 # Fake Synology mDNS broadcast
@@ -17,7 +17,8 @@
 ##socat UDP4-RECVFROM:5353,IP_ADD_MEMBERSHIP=224.0.0.251:wg0 UDP4-SENDTO:5353:eth0 &
 
 # Forward mDNS between local network (eth0) and VPN (wg0)
-socat UDP4-RECVFROM:5353 UDP4-SENDTO:5353:wg0 &
-socat UDP4-RECVFROM:5353 UDP4-SENDTO:5353:eth0 &
+socat UDP4-RECVFROM:5353,fork UDP4-SENDTO:5353:wg0 &
+socat UDP4-RECVFROM:5353,fork UDP4-SENDTO:5353:eth0 &
+
 # Keep container alive
 tail -f /dev/null
