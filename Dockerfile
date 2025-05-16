@@ -3,11 +3,11 @@ FROM homeassistant/armv7-base:latest
 # Install Avahi and socat for mDNS forwarding
 RUN apk add --no-cache avahi socat
 
-# Add your reflector script
-COPY avahi-reflector.sh /usr/local/bin/avahi-reflector.sh
+# Copy the run.sh script into the container
+COPY run.sh /usr/local/bin/run.sh
 
-# Set the script as executable
-RUN chmod +x /usr/local/bin/avahi-reflector.sh
+# Make the script executable
+RUN chmod +x /usr/local/bin/run.sh
 
-# Start Avahi daemon and the reflector script
-CMD ["sh", "-c", "/usr/sbin/avahi-daemon && /usr/local/bin/avahi-reflector.sh"]
+# Start the script
+CMD ["/usr/local/bin/run.sh"]
