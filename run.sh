@@ -25,10 +25,10 @@ ETH0_IP="192.168.100.219"
 WG0_IP="10.0.0.2"
 
 # Forward mDNS traffic from eth0 to wg0
-socat UDP4-RECVFROM:5353,fork UDP4-SENDTO:$WG0_IP:5353 &
+socat UDP4-RECVFROM:5354,fork UDP4-SENDTO:$WG0_IP:5354 &
 
 # Forward mDNS traffic from wg0 to eth0
-socat UDP4-RECVFROM:5353,fork UDP4-SENDTO:$ETH0_IP:5353 &
+socat UDP4-RECVFROM:5354,fork UDP4-SENDTO:$ETH0_IP:5354 &
 
 # Receive mDNS on eth0 and forward it to wg0
 ##socat UDP4-RECVFROM:5353,fork UDP4-SENDTO:5353:wg0 &
