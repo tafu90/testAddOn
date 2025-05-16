@@ -18,6 +18,9 @@ FROM homeassistant/armv7-base:latest
 # Install Avahi and socat for mDNS forwarding
 RUN apk add --no-cache avahi socat
 
+# Install Avahi, Socat, and nss-mdns
+RUN apk add --no-cache avahi socat nss-mdns
+
 # Copy the run.sh script into the container
 COPY run.sh /usr/local/bin/run.sh
 
